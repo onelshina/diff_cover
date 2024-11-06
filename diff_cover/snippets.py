@@ -133,12 +133,12 @@ class Snippet:
 
         header = "Lines %d-%d\n\n" % (self._start_line, self._last_line)
         if self._lexer_name in self.LEXER_TO_MARKDOWN_CODE_HINT:
-            return header + (
+            return '<details>\n' + '<summary>' + header + '</summary>\n' + (
                 "```"
                 + self.LEXER_TO_MARKDOWN_CODE_HINT[self._lexer_name]
                 + "\n"
                 + text
-                + "\n```\n"
+                + "\n```\n" + '</details>'
             )
 
         # unknown programming language, return a non-decorated fenced code block:
