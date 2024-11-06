@@ -51,8 +51,8 @@ class BaseReportGenerator(ABC):
         self._violations = violations_reporter
         self._diff = diff_reporter
         self._diff_violations_dict = None
-
         self._cache_violations = None
+        self._project_name = None
 
     @abstractmethod
     def generate_report(self, output_file):
@@ -68,7 +68,10 @@ class BaseReportGenerator(ABC):
         """
         Return the name of the coverage report.
         """
-        return self._violations.name()
+        if self._project_name is None:
+            return self._violations.name()
+        else:
+            return self._project_name
 
     def diff_report_name(self):
         """
@@ -455,6 +458,10 @@ class MarkdownReportGenerator(TemplateReportGenerator):
 
     template_path = "markdown_coverage_report.md"
     include_snippets = True
+
+    def __init__(self, violations_reporter, diff_reporter, project_name=None):
+        super().__init__(violations_reporter, diff_reporter)
+        self._project_name = project_name
 
 
 class MarkdownQualityReportGenerator(TemplateReportGenerator):

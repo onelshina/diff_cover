@@ -1,4 +1,4 @@
-# Diff Coverage
+# Diff Coverage - {{ report_name }}
 
 {% if src_stats %}
 {% for src_path, stats in src_stats|dictsort %}

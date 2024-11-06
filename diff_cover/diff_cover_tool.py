@@ -111,6 +111,13 @@ def parse_coverage_args(argv):
     )
 
     parser.add_argument(
+        "--project-name",
+        type=str,
+        metavar="FILENAME",
+        help="Name of the project, used by reporter",
+    )
+
+    parser.add_argument(
         "--compare-branch",
         metavar="BRANCH",
         type=str,
@@ -216,6 +223,7 @@ def generate_coverage_report(
     quiet=False,
     show_uncovered=False,
     expand_coverage_report=False,
+    project_name=None,
 ):
     """
     Generate the diff coverage report, using kwargs from `parse_args()`.
@@ -265,7 +273,7 @@ def generate_coverage_report(
             reporter.generate_report(output_file)
 
     if markdown_report is not None:
-        reporter = MarkdownReportGenerator(coverage, diff)
+        reporter = MarkdownReportGenerator(coverage, diff, project_name)
         with open(markdown_report, "wb") as output_file:
             reporter.generate_report(output_file)
 
@@ -288,7 +296,6 @@ def main(argv=None, directory=None):
     """
     argv = argv or sys.argv
     arg_dict = parse_coverage_args(argv[1:])
-
     quiet = arg_dict["quiet"]
     level = logging.ERROR if quiet else logging.WARNING
     logging.basicConfig(format="%(message)s", level=level)
@@ -321,6 +328,7 @@ def main(argv=None, directory=None):
         quiet=quiet,
         show_uncovered=arg_dict["show_uncovered"],
         expand_coverage_report=arg_dict["expand_coverage_report"],
+        project_name=arg_dict["project_name"],
     )
 
     if percent_covered >= fail_under:
