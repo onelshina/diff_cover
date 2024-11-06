@@ -22,7 +22,4 @@
 No lines with coverage information in this diff.
 {% endif %}
 
-<details>
-<summary>Test Details</summary>
 {% include 'snippet_content.md' %}
-</details>
