@@ -15,7 +15,6 @@
 ---
 
 {% endfor %}
-
+</details>
 {% endif %}
 {% endfor %}
-</details>
