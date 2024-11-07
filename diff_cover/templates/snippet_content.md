@@ -8,7 +8,7 @@
 
 {{ snippet }}
 
-</details>
+
 
 
 
@@ -18,3 +18,4 @@
 
 {% endif %}
 {% endfor %}
+</details>
