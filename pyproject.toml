@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "diff_cover"
-version = "9.2.0"
+version = "9.2.3"
 description = "Run coverage and linting reports on diffs"
 authors = ["See Contributors"]
 homepage = "https://github.com/Bachmann1234/diff-cover"
@@ -15,11 +15,11 @@ classifiers=[
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
         "Programming Language :: Python :: Implementation :: CPython",
         "Topic :: Software Development :: Testing",
         "Topic :: Software Development :: Quality Assurance",
@@ -40,8 +40,8 @@ diff-cover = 'diff_cover.diff_cover_tool:main'
 diff-quality = 'diff_cover.diff_quality_tool:main'
 
 [tool.poetry.dependencies]
-python = "^3.8.10"
-Pygments = "^2.9.0"
+python = "^3.9.17"
+Pygments = "^2.19.1"
 Jinja2 = ">=2.7.1"
 pluggy = ">=0.13.1,<2"
 chardet = ">=3.0.0"
@@ -49,17 +49,17 @@ tomli = {version = ">=1.2.1", optional = true}
 setuptools = { version = ">=17.0.0", python = "<3.8" }
 
 [tool.poetry.dev-dependencies]
-pytest-cov = "^5.0.0"
+pytest-cov = "^6.0.0"
 pytest-datadir = "^1.5.0"
 pytest-mock = "^3.14.0"
 pycodestyle = ">=2.9.1"
 flake8 = "^5.0.4"
 pyflakes = "^2.5.0"
-pylint = "^3.2.7"
+pylint = "^3.3.4"
 pylint-pytest = "^1.1.8"
 pydocstyle = "^6.1.1"
-black = "^24.8.0"
-isort = "^5.13.2"
+black = "^25.1.0"
+isort = "^6.0.1"
 doc8 = "1.1.2"
 
 [tool.poetry.extras]
